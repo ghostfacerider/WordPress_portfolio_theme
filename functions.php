@@ -26,6 +26,15 @@ class Portfolio_Theme
 
         // Register the sidebar
         add_action('widgets_init', [$this, 'portfolio_register_sidebar']);
+
+        // Register ACF blocks
+        add_action('acf/init', [$this, 'portfolio_about_me']); // Register the About Me block
+        add_action('acf/init', [$this, 'portfolio_contact_me']); // Register the Contact Me block
+        add_action('acf/init', [$this, 'portfolio_services']); // Register the Services block
+        add_action('acf/init', [$this, 'portfolio_skills']); // Register the Skills block
+
+        // Register the ACF Portfolio block
+        add_action('acf/init', [$this, 'portfolio_portfolio_block']); // Register the Portfolio block
     }
 
     public function version()
@@ -68,7 +77,91 @@ class Portfolio_Theme
             'before_title' => '<h2 class="widget-title">',
             'after_title' => '</h2>',
         ));
+    }
 
+    /**
+     * Register the ACF About Me block
+     */
+    public function portfolio_about_me()
+    {
+        acf_register_block_type(array(
+            'name' => 'about',
+            'title' => __('About Me'),
+            'description' => __('A block to display about me section.'),
+            'render_template' => 'template-parts/blocks/about/about.php',
+            'category' => 'common',
+            'icon' => 'id',
+            'keywords' => array('about', 'me'),
+            'enqueue_style' => get_template_directory_uri() . '/blocks/about/about.css',
+        ));
+    }
+
+    /**
+     * Register the ACF Contact Me block
+     */
+    public function portfolio_contact_me()
+    {
+        acf_register_block_type(array(
+            'name' => 'contact',
+            'title' => __('Contact Me'),
+            'description' => __('A block to display contact information and a form.'),
+            'render_template' => 'template-parts/blocks/contact/contact.php',
+            'category' => 'common',
+            'icon' => 'mail',
+            'keywords' => array('contact', 'form', 'get in touch'),
+            'enqueue_style' => get_template_directory_uri() . '/blocks/contact/contact.css',
+        ));
+    }
+
+    /**
+     * Register the ACF Services block
+     */
+    public function portfolio_services()
+    {
+        acf_register_block_type(array(
+            'name' => 'services',
+            'title' => __('Services'),
+            'description' => __('A block to display services offered.'),
+            'render_template' => 'template-parts/blocks/services/services.php',
+            'category' => 'common',
+            'icon' => 'briefcase',
+            'keywords' => array('services', 'offer', 'business'),
+            'enqueue_style' => get_template_directory_uri() . '/blocks/services/services.css',
+        ));
+    }
+
+    /**
+     * Register the ACF Skills block
+     */
+    public function portfolio_skills()
+    {
+        acf_register_block_type(array(
+            'name' => 'skills',
+            'title' => __('Skills'),
+            'description' => __('A block to display my skills and experience.'),
+            'render_template' => 'template-parts/blocks/skills/skills.php',
+            'category' => 'common',
+            'icon' => 'awards',
+            'keywords' => array('skills', 'experience', 'abilities'),
+            'enqueue_style' => get_template_directory_uri() . '/blocks/skills/skills.css',
+        ));
+    }
+
+    /**
+     * Register the ACF Portfolio block
+     */
+    public function portfolio_portfolio_block()
+    {
+        acf_register_block_type(array(
+            'name' => 'portfolio',
+            'title' => __('Portfolio'),
+            'description' => __('A block to display my recent works.'),
+            'render_template' => 'template-parts/blocks/portfolio/portfolio.php',
+            'category' => 'common',
+            'icon' => 'portfolio',
+            'keywords' => array('portfolio', 'works', 'projects'),
+            'enqueue_style' => get_template_directory_uri() . '/blocks/portfolio/portfolio.css',
+        ));
     }
 
     public static function get_instance()

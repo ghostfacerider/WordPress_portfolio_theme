@@ -1,0 +1,10 @@
+portfolio_items with subfields like:
+
+Image (image field)
+Type (text field, e.g., "Web" or "CMS")
+Title (text field)
+Description (textarea)
+Created (date picker or text)
+Technologies (text field)
+Role (text field)
+View Link (URL field)
