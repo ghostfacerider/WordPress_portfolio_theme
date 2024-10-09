@@ -28,13 +28,6 @@ class Portfolio_Theme
         add_action('widgets_init', [$this, 'portfolio_register_sidebar']);
 
         // Register ACF blocks
-
-        include THEME_DIR . './includes/about-page.php'; // Register the About Me block
-include THEME_DIR . './includes/contact-page.php'; // Register the Contact Me block
-include THEME_DIR . './includes/services-page.php'; // Register the Services block
-include THEME_DIR . './includes/skills.php'; // Register the Skills block
-include THEME_DIR . './includes/portfolio.php'; // Register the Portfolio block
-
         add_action('acf/init', [$this, 'portfolio_about_me']); // Register the About Me block
         add_action('acf/init', [$this, 'portfolio_contact_me']); // Register the Contact Me block
         add_action('acf/init', [$this, 'portfolio_services']); // Register the Services block
