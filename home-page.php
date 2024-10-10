@@ -62,8 +62,3 @@ get_header(); // Include the header
         </div>
     </section>
 </main>
-
-<?php
-
-get_footer(); // Include the footer
-?>
