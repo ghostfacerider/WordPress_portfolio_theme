@@ -252,7 +252,9 @@ input {
   right: 0;
   margin: auto;
 }
-
+.home footer{
+  display: none !important;
+}
 /*=============== MAIN ===============*/
 
 .main {
