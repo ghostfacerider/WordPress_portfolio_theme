@@ -184,7 +184,7 @@ input {
   margin: -2px auto 0 auto;
 }
 
-.nav_link {
+.nav_list li a {
   float: right;
   height: 100%;
   line-height: 100px;
@@ -234,13 +234,13 @@ input {
 
 /* Active Link */
 
-.nav_link.active-link,
-.nav_link:hover {
+.nav_list li a.active-link,
+.nav_list li a:hover {
   color: var(--skin-color);
 }
 
-.nav_link.active-link::after,
-.nav_link:hover::after {
+.nav_list li a.active-link::after,
+.nav_list li a:hover::after {
   position: absolute;
   content: "";
   width: 6px;
@@ -266,6 +266,7 @@ input {
   background: url(../img/banner.jpg);
   background-size: cover;
   background-position: center center;
+  background-repeat: no-repeat;
   height: 100vh;
 }
 
@@ -316,10 +317,6 @@ input {
 
 .typing {
   color: var(--skin-color);
-}
-
-.home_img {
-  display: none;
 }
 
 .home_title {
@@ -1186,10 +1183,6 @@ textarea.input {
     margin-right: var(--mb-1);
   }
 
-  .home_img {
-    width: 200px;
-  }
-
   .home_title {
     font-size: var(--h1-font-size);
   }
@@ -1239,20 +1232,12 @@ textarea.input {
   }
 
   .home {
-    background-image: none;
-    height: initial;
-    align-items: initial;
-    padding: 7rem 0 2rem;
+    background-position: right;
+    
   }
 
   .home_container {
     row-gap: 2rem;
-  }
-
-  .home_img {
-    display: block;
-    width: 250px;
-    justify-self: center;
   }
 
   .home_social {
@@ -1260,6 +1245,7 @@ textarea.input {
     right: -1rem;
     flex-direction: column;
     row-gap: 3.5rem;
+    padding-top: 7rem;
   }
 
   .home_social-follow {
@@ -1425,13 +1411,13 @@ textarea.input {
     align-items: center;
   }
 
-  .nav_link {
+  .nav_list li a {
     padding: 1rem 0;
     line-height: 1.5;
   }
 
-  .nav_link.active-link::after,
-  .nave_link:hover::after {
+  .nav_list li a.active-link::after,
+  .nav_list li a:hover::after {
     bottom: 0;
   }
 
