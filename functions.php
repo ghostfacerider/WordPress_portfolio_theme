@@ -91,8 +91,8 @@ if (!class_exists('Portfolio_Theme')) {
                 'about-page',
                 'contact-page',
                 'services-page',
-                'skills',
-                'portfolio',
+                'skills-page',
+                'portfolio-page',
             ];
 
             foreach ($blocks as $block) {
