@@ -23,7 +23,6 @@ if (!class_exists('Portfolio_Theme')) {
 
             // Hook into actions
             add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts']);
-            add_action('widgets_init', [$this, 'register_sidebar']);
             add_action('after_setup_theme', [$this, 'register_menus']);
 
             // Include ACF block registrations
@@ -35,21 +34,6 @@ if (!class_exists('Portfolio_Theme')) {
             if (!defined('_S_VERSION')) {
                 define('_S_VERSION', '1.0.0');
             }
-        }
-
-        /**
-         * Register the sidebar.
-         */
-        public function register_sidebar()
-        {
-            register_sidebar([
-                'name' => __('Primary Sidebar', 'portfolio'),
-                'id' => 'main-sidebar',
-                'before_widget' => '<div class="sidebar-widget">',
-                'after_widget' => '</div>',
-                'before_title' => '<h2 class="widget-title">',
-                'after_title' => '</h2>',
-            ]);
         }
 
         /**
