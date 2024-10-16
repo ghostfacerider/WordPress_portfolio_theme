@@ -24,7 +24,6 @@ get_header(); // Include the header
                         </a>
                     </div>
                 </div>
-                <img src="img/blackman.jpg" alt="" class="home_img">
                 <div class="home_data">
                     <h1 class="home_titl">Hello, my name is  Gendy</h1>
                     <h3 class="home_subtitle">I'm <span class="typing"></span>. </h3>
