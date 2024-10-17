@@ -12,7 +12,7 @@ get_header(); // Include the heade
     <section class="about section" id="about">
         <h2 data-heading="My Intro" class="section_title">About Me</h2>
         <div class="about_container container grid">
-            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/img/blackman.jpg" alt="" class="about_img">
+            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/blackman.jpg" alt="" class="about_img">
             <div class="about_data">
                 <h3 class="about_heading">Hi, I am Gendy, based in Canada</h3>
                 <p class="about_description">I am in my second year at NSCC in the IT Web Programming program. I am a
