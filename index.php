@@ -28,7 +28,7 @@ get_header(); // Include the header
                     <h1 class="home_titl">Hello, my name is  Gendy</h1>
                     <h3 class="home_subtitle">I'm <span class="typing"></span>. </h3>
                     <!-- <p class="home_description">I am in my second year at NSCC in the IT Web Programming, program.</p> -->
-                    <a href="about.php" class="button">
+                    <a href="about" class="button">
                         <i class="uil uil-user button_icon"></i>
                         More About Me
                     </a>
