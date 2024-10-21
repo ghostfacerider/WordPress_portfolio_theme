@@ -39,32 +39,32 @@ get_header(); // Include the heade
                 </div>
             </div>
             <div class="contact_content">
-                <form action="" class="contact_form">
-                    <div class="input_container">
-                        <input type="text" class="input" required>
-                        <label for="">UserName</label>
-                        <span>Username</span>
-                    </div>
-                    <div class="input_container">
-                        <input type="email" class="input" required>
-                        <label for="">Email</label>
-                        <span>Email</span>
-                    </div>
-                    <div class="input_container">
-                        <input type="tel" class="input" required>
-                        <label for="">Phone</label>
-                        <span>Phone</span>
-                    </div>
-                    <div class="input_container textarea">
-                        <textarea name="" class="input" id="" required></textarea>
-                        <label for="">Message</label>
-                        <span>Message</span>
-                    </div>
-                    <button type="submit" class="button">
-                        <i class="uil uil-navigator button_icon"></i>Send Message
-                    </button>
-                </form>
-            </div>
+				<form action="" method="POST" class="contact_form">
+					<?php wp_nonce_field('contact_form_nonce', 'contact_form_submit'); ?>
+					<div class="input_container">
+						<input type="text" name="username" class="input" required>
+						<label for="username">UserName</label><span>Username</span>
+					</div>
+					<div class="input_container">
+						<input type="email" name="email" class="input" required>
+						<label for="email">Email</label><span>Email</span>
+					</div>
+					<div class="input_container">
+						<input type="tel" name="phone" class="input" required>
+						<label for="phone">Phone</label><span>Phone</span>
+					</div>
+					<div class="input_container textarea">
+						<textarea name="message" class="input" id="" required></textarea>
+						<label for="message">Message</label><span>Message</span>
+					</div>
+					<button type="submit" class="button">
+						<i class="uil uil-navigator button_icon"></i>Send Message
+					</button>
+				</form>
+				<div class="form-feedback">
+					<?php echo handle_contact_form(); ?>
+				</div>
+			</div>
         </div>
     </section>
 </main>

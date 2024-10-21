@@ -26,7 +26,7 @@ if (!class_exists('Portfolio_Theme')) {
             add_action('after_setup_theme', [$this, 'register_menus']);
 
             // Include ACF block registrations
-            $this->include_acf_blocks();
+            //$this->include_acf_blocks();
         }
 
         private function define_version()
@@ -95,4 +95,71 @@ if (!class_exists('Portfolio_Theme')) {
 
     // Initialize the theme
     Portfolio_Theme::get_instance();
+}
+
+// Theme support
+function sonuk_theme_setup() {
+    add_theme_support( 'widgets' );
+    add_theme_support('title-tag');
+    add_theme_support('custom-logo');
+    add_theme_support('post-thumbnails');
+    add_theme_support('automatic-feed-links');
+    add_theme_support('html5', array('search-form', 'comment-form', 'gallery', 'caption'));
+    add_theme_support('threaded-comments');
+}
+
+add_action('after_setup_theme', 'sonuk_theme_setup');
+
+function handle_contact_form() {
+    // Initialize a variable to store messages
+    $form_feedback = '';
+
+    if ( isset($_POST['contact_form_submit']) && wp_verify_nonce($_POST['contact_form_submit'], 'contact_form_nonce') ) {
+
+        // Initialize an array to store errors
+        $errors = array();
+
+        // Sanitize and validate form inputs
+        $username = sanitize_text_field( $_POST['username'] );
+        $email = sanitize_email( $_POST['email'] );
+        $phone = sanitize_text_field( $_POST['phone'] );
+        $message = sanitize_textarea_field( $_POST['message'] );
+
+        // Check if fields are empty
+        if ( empty($username) ) {
+            $errors[] = 'Username is required.';
+        }
+        if ( !is_email($email) ) {
+            $errors[] = 'A valid email is required.';
+        }
+        if ( empty($phone) ) {
+            $errors[] = 'Phone number is required.';
+        }
+        if ( empty($message) ) {
+            $errors[] = 'Message is required.';
+        }
+
+        // If there are no errors, proceed with sending the email
+        if ( empty($errors) ) {
+            $to = 'test@example.in'; // Change this to your desired email address
+            $subject = "New Contact Form Submission from $username";
+            $body = "Username: $username\nEmail: $email\nPhone: $phone\nMessage: $message";
+            $headers = array('Content-Type: text/plain; charset=UTF-8');
+
+            // Send email
+            if ( wp_mail( $to, $subject, $body, $headers ) ) {
+                $form_feedback = '<p class="success">Thank you for your message. We will get back to you soon!</p>';
+            } else {
+                $form_feedback = '<p class="error">There was an issue sending your message. Please try again later.</p>';
+            }
+        } else {
+            // Display errors
+            foreach ( $errors as $error ) {
+                $form_feedback .= '<p class="error">' . $error . '</p>';
+            }
+        }
+    }
+
+    // Return the feedback for use later
+    return $form_feedback;
 }

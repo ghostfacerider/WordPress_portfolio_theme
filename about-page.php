@@ -3,7 +3,7 @@
  * Template Name: About Page
  */
 
-get_header(); // Include the heade
+get_header(); // Include the header
 
 ?>
 
