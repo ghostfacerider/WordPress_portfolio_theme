@@ -291,6 +291,17 @@ input {
   z-index: 1;
 }
 
+@media only screen and (max-width:1600px){
+	.home .container{
+		margin-left: 240px;
+	}
+}
+@media only screen and (max-width:1024px){
+	.home .container{
+		margin-left: var(--mb-1-5);
+	}
+}
+
 .home_social {
   position: absolute;
   top: 1.8rem;
@@ -1559,4 +1570,3 @@ p.error {
     padding-right: 3.5rem;
   }
 }
-
